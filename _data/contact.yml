@@ -1,0 +1,8 @@
+#  The contact options. (Footer social icons — GitHub + LinkedIn only.)
+
+- type: github
+  icon: "fab fa-github"
+
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/thasami/"
