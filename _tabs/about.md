@@ -4,5 +4,5 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
+I'm a site reliability engineer who writes about the unglamorous middle of modern infrastructure: internal developer platforms, incident postmortems, and what actually happens when you wire AI into a deployment pipeline at scale. Less hype, more field notes from running these systems in production.
 {: .prompt-tip }
