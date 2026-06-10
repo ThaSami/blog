@@ -139,19 +139,19 @@ The headline: **a 5× renewal, sidestepped.** We were paying a license priced pe
 
 Beyond the dollars:
 
-- **Single, cloud native deployment** on infrastructure we already operate, no JVM tuning, no HA license tier.
-- **Source level ownership.** Every bug above I could diagnose by reading code and fix by writing it, [ten of those fixes](#the-upstream-fixes) are now merged upstream, so the next team migrating inherits a better, safer tool.
-- **A faster, safer registry.** Artifact lookups dropped out of the request budget entirely, and a privilege escalation hole is closed for everyone, not just us.
+- Single, cloud native deployment on infrastructure we already operate, no JVM tuning, no HA license tier.
+- Every bug above I could diagnose by reading code and fix by writing it, [ten of those fixes](#the-upstream-fixes) are now merged upstream, so the next team migrating inherits a better, safer tool.
+- Artifact lookups dropped out of the request budget entirely, and a privilege escalation hole is closed for everyone, not just us.
 
 ## What I'd do differently
 
-**Distrust "completed."** The most expensive lesson was a migration tool reporting success while producing nothing. I now verify the *destination* independently. The real test is whether a client can resolve a migrated artifact, never the job's own status field.
+- The most expensive lesson was a migration tool reporting success while producing nothing. I now verify the *destination* independently. The real test is whether a client can resolve a migrated artifact, never the job's own status field.
 
-**Backfill is not free.** Bulk inserting metadata to "fix" missing rows created the Maven shadowing bug. In any system that aggregates or proxies, adding a record can change resolution for records you didn't touch. Test the read path after every write path repair.
+- Bulk inserting metadata to "fix" missing rows created the Maven shadowing bug. In any system that aggregates or proxies, adding a record can change resolution for records you didn't touch. Test the read path after every write path repair.
 
-**The long tail is the project.** The PoC was a few weeks. The real work was the weeks *after* cutover, per build failures, each a slightly different root cause behind the same generic error. The migration isn't done when traffic flips; it's done when the failure reports stop.
+- The PoC was a few weeks. The real work was the weeks *after* cutover, per build failures, each a slightly different root cause behind the same generic error. The migration isn't done when traffic flips; it's done when the failure reports stop.
 
-**Owning the source is a real feature.** Every painful moment here would have been a support ticket on the old stack. Instead each was a pull request. For plumbing this fundamental, that was worth far more than the license savings.
+- Every painful moment here would have been a support ticket on the old stack. Instead each was a pull request. For plumbing this fundamental, that was worth far more than the license savings.
 
 ## If you're considering the same move
 
